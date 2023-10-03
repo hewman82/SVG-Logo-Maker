@@ -23,6 +23,7 @@
   ## Usage
   
   Run node index in the command line to initialize the application, then follow the prompts.
+  [View demo video](https://drive.google.com/file/d/1hXajdMUtmUolqxxfGPYBHxweVaAfDzsH/view)
   
   ## Contributing
   

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const Triangle = require('./lib/shapes.js');
+const { Triangle, Circle, Square } = require('./lib/shapes');
 
 const generateSVG = require('./lib/generatesvg.js');
 
@@ -33,8 +33,15 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then ((response) => {
-        const shape = new Triangle(response.color, response.text, response.textColor);
-        writeToFile('logo.svg', shape.render(shape.dimensions, shape.textScript));
+        if(`${response.shape}` === "Triangle") {
+            var shape = new Triangle(response.color, response.text, response.textColor);
+        } else if(`${response.shape}` === 'Circle') {
+            var shape = new Circle(response.color, response.text, response.textColor);
+        } else if (`${response.shape}` === 'Square') {
+            var shape = new Square(response.color, response.text, response.textColor);
+        }
+        console.log(shape.dimensions);
+        writeToFile('logo.svg', shape.render(shape.dimensions, shape.setColor(shape.color), shape.textScript));
     });
 }
 

@@ -40,7 +40,6 @@ function init() {
         } else if (`${response.shape}` === 'Square') {
             var shape = new Square(response.color, response.text, response.textColor);
         }
-        console.log(shape.dimensions);
         writeToFile('logo.svg', shape.render(shape.dimensions, shape.setColor(shape.color), shape.textScript));
     });
 }
